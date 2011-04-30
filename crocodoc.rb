@@ -94,7 +94,7 @@ module Crocodoc
   # "View a document using session-based viewing. Session-based viewing enables
   #  the embedding of private documents. To obtain session IDs, use the
   #  session/get API method."
-  def session_based_viewer_url(session_id)
+  def session_based_viewer_url(sessionId)
     "https://crocodoc.com/view/?sessionId=#{sessionId}"
   end
 

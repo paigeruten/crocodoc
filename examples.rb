@@ -39,3 +39,11 @@ Crocodoc.get_session(uuid)
 # Get a new session ID, with all the options
 Crocodoc.get_session(uuid, :downloadable => true, :editable => true, :name => "Jeremy Ruten")
     #=> {:sessionId=>"2FifJqejGtcR53c"}
+
+# Get a URL that can be used to embed the document viewer in an iframe
+Crocodoc.embeddable_viewer_url(shortId)
+    #=> "http://crocodoc.com/Ni2Af?embedded=true"
+
+# Get a URL that can be used to view private documents using a session id
+Crocodoc.session_based_viewer_url(sessionId)
+    #=> "https://crocodoc.com/view/?sessionId=2FifJqejGtcR53c"
