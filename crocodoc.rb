@@ -24,7 +24,7 @@ module Crocodoc
     # When downloading, should the document include annotations?
     :annotated => false,
 
-    # Can users mark up the document? (Affects both #share and #new_session)
+    # Can users mark up the document? (Affects both #share and #get_session)
     :editable => true,
 
     # Whether or not a session user can download the document.
