@@ -45,7 +45,9 @@ module Crocodoc
   end
 
   # "Check the conversion status of a document."
-  def status(*uuids, options = {})
+  def status(*uuids)
+    options = {}
+    options.merge! uuids.pop if uuids.last.is_a? Hash
     options.merge! :uuids => uuids.join(",")
     _shake_and_stir_params(options, :uuids, :token)
 
