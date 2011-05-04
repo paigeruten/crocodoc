@@ -111,7 +111,7 @@ module Crocodoc
       # JSON.parse has a problem with parsing the string "true"...
       true
     else
-      _convert_hash_keys_to_symbols(JSON.parse(response_body))
+      JSON.parse(response_body, :symbolize_names => true)
     end
   end
 
@@ -133,22 +133,6 @@ module Crocodoc
     # Shake out the unwanted params.
     params.keys.each do |key|
       params.delete(key) unless whitelist.include? key
-    end
-  end
-
-  def _convert_hash_keys_to_symbols(data)
-    if data.is_a? Hash
-      data.keys.each do |key|
-        data[key] = _convert_hash_keys_to_symbols(data[key])
-        if key.is_a? String
-          data[key.to_sym] = data.delete(key)
-        end
-      end
-      data
-    elsif data.is_a? Array
-      data.map { |el| _convert_hash_keys_to_symbols(el) }
-    else
-      data
     end
   end
 end
