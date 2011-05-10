@@ -4,6 +4,6 @@ crocodoc.rb
 by jeremy ruten
 jeremy.ruten@gmail.com
 
-This is a simple Ruby wrapper for Crocodoc's web API. It uses Typhoeus to makes its HTTP requests and to sort out the responses.
+This is a simple Ruby wrapper for Crocodoc's web API. It uses RestClient to makes its HTTP requests and to sort out the responses.
 
 To give it your API token and to set some default parameter values for the various API methods, modify the Crocodoc::API_OPTIONS constant at the top of crocodoc.rb.

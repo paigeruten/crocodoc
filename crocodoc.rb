@@ -1,4 +1,4 @@
-require 'typhoeus'
+require 'rest-client'
 require 'json'
 
 module Crocodoc
@@ -116,14 +116,16 @@ module Crocodoc
   end
 
   def _request_raw(path, method, options)
-    request = Typhoeus::Request.new(API_URL + path, :method => method, :params => options)
+    response = case method
+    when :get
+      RestClient.get(API_URL + path, :params => options)
+    when :post
+      RestClient.post(API_URL + path, options)
+    else
+      raise ArgumentError, "method must be :get or :post"
+    end
 
-    hydra = Typhoeus::Hydra.new
-    hydra.queue(request)
-    hydra.run
-
-    response = request.response
-    response.success? ? response.body : false
+    response.code == 200 ? response.to_str : false
   end
 
   def _shake_and_stir_params(params, *whitelist)
