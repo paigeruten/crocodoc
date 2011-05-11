@@ -1,5 +1,5 @@
 # Upload a file from the disk
-Crocodoc.upload(File.open("your-file.pdf", "r"))
+Crocodoc.upload(File.open("your-file.pdf", "rb"))
     #=> {:shortId=>"Ni2Af", :uuid=>"34b17ba7-5035-46d5-f69a-457abbe69cd7"}
 
 # Upload a file from a certain URL
@@ -7,7 +7,7 @@ Crocodoc.upload("http://example.com/your-file.pdf")
     #=> {:shortId=>"Ni2Af", :uuid=>"34b17ba7-5035-46d5-f69a-457abbe69cd7"}
 
 # Upload a file with all the options
-Crocodoc.upload(File.open("your-file.pdf", "r"), :title => "My File", :async => true, :private => true)
+Crocodoc.upload(File.open("your-file.pdf", "rb"), :title => "My File", :async => true, :private => true)
     #=> {:shortId=>"Ni2Af", :uuid=>"34b17ba7-5035-46d5-f69a-457abbe69cd7", :private=>true}
 
 # Check the conversion status of a document
