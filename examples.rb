@@ -32,6 +32,10 @@ end
 Crocodoc.share(uuid, :editable => true)
     #=> {:shortId=>"Ni2Af"}
 
+# Clones an uploaded document. Document annotations are not copied.
+Crocodoc.clone(uuid)
+    #=> {"shortId": "Ni2Af", "uuid": "34b17ba7-5035-46d5-f69a-457abbe69cd7"}
+
 # Get a new session ID for session-based document viewing
 Crocodoc.get_session(uuid)
     #=> {:sessionId=>"2FifJqejGtcR53c"}
