@@ -78,6 +78,14 @@ module Crocodoc
     _request("/document/share", :get, options)
   end
 
+  # "Clones an uploaded document. Document annotations are not copied."
+  def clone(uuid, options = {})
+    options.merge! :uuid => uuid
+    _shake_and_stir_params(options, :uuid, :token)
+    
+    _request("/document/clone", :get, options)
+  end
+
   # "Creates a session ID for session-based document viewing. Each session ID
   #  may only be used once."
   def get_session(uuid, options = {})
